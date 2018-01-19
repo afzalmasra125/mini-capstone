@@ -1,10 +1,20 @@
 class ProductsController < ApplicationController
-  def hockey_methods
-    sports = Product.all
-    render json: sports.as_json
+  def index 
+    product = Product.all
+    render json: product.as_json
   end
-  def basketball_methods
-   basketball = Product.last
-    render json: basketball.as_json
+  def create
+     product = Product.new(
+                          name: params[:name],
+                          price: params[:price],
+                          image_url: params[:image_url],
+                          description: params[:description]
+                      )
+    recipe.save
+    render json: recipe.as_json
+  end
+  def show
+    product = Product.find(params[:id])
+    render json: product.as_json
   end
 end

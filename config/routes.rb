@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-get "/hockey_url" =>'products#hockey_methods'
-get "/basketball_url" =>'products#basketball_methods'
-
+#get "/equipments" =>'products#show'
+get "/equipments" =>'products#index'
+post "/equipments" =>'products#create'
+get "/equipments/:id" => 'products#show'
 end
